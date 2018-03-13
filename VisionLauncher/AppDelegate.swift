@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Vision
+//  VisionLauncher
 //
 //  Created by Utsav Patel on 13/03/18.
 //  Copyright © 2018 Utsav Patel. All rights reserved.
@@ -10,6 +10,8 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+
+
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application

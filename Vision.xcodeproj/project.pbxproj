@@ -7,15 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F05324F20584E62007CA227 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F05324E20584E62007CA227 /* AppDelegate.swift */; };
+		6F05325320584E62007CA227 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F05325220584E62007CA227 /* Assets.xcassets */; };
+		6F05325D20584E77007CA227 /* LaunchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F05325C20584E77007CA227 /* LaunchHelper.swift */; };
+		6F05326520584F76007CA227 /* VisionLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6F05324C20584E62007CA227 /* VisionLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6F1CD8882058486F0070F383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1CD8872058486F0070F383 /* AppDelegate.swift */; };
 		6F1CD88A2058486F0070F383 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1CD8892058486F0070F383 /* ViewController.swift */; };
 		6F1CD88C2058486F0070F383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F1CD88B2058486F0070F383 /* Assets.xcassets */; };
 		6F1CD88F2058486F0070F383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F1CD88D2058486F0070F383 /* Main.storyboard */; };
 		6F1CD89B205848700070F383 /* VisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1CD89A205848700070F383 /* VisionTests.swift */; };
 		6F1CD8A6205848700070F383 /* VisionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1CD8A5205848700070F383 /* VisionUITests.swift */; };
+		6F1CD8C9205848CA0070F383 /* LaunchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1CD8C8205848CA0070F383 /* LaunchHelper.swift */; };
+		6F1CD8CF20584B070070F383 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1CD8CE20584B070070F383 /* Cocoa.framework */; };
+		6F1CD8D120584B140070F383 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F1CD8D020584B140070F383 /* ServiceManagement.framework */; };
+		6FFBB07B205854580007B21A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FFBB079205854580007B21A /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6F05326220584F18007CA227 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F1CD87C2058486F0070F383 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F05324B20584E62007CA227;
+			remoteInfo = VisionLauncher;
+		};
 		6F1CD897205848700070F383 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6F1CD87C2058486F0070F383 /* Project object */;
@@ -32,7 +47,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6F1CD8D620584B800070F383 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				6F05326520584F76007CA227 /* VisionLauncher.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		6F05324C20584E62007CA227 /* VisionLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F05324E20584E62007CA227 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6F05325220584E62007CA227 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6F05325720584E62007CA227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F05325820584E62007CA227 /* VisionLauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VisionLauncher.entitlements; sourceTree = "<group>"; };
+		6F05325C20584E77007CA227 /* LaunchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchHelper.swift; sourceTree = "<group>"; };
 		6F1CD8842058486F0070F383 /* Vision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F1CD8872058486F0070F383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6F1CD8892058486F0070F383 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,13 +80,26 @@
 		6F1CD8A1205848700070F383 /* VisionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F1CD8A5205848700070F383 /* VisionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionUITests.swift; sourceTree = "<group>"; };
 		6F1CD8A7205848700070F383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F1CD8C8205848CA0070F383 /* LaunchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchHelper.swift; sourceTree = "<group>"; };
+		6F1CD8CE20584B070070F383 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		6F1CD8D020584B140070F383 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		6FFBB07A205854580007B21A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6F05324920584E62007CA227 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6F1CD8812058486F0070F383 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1CD8D120584B140070F383 /* ServiceManagement.framework in Frameworks */,
+				6F1CD8CF20584B070070F383 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,13 +120,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F05324D20584E62007CA227 /* VisionLauncher */ = {
+			isa = PBXGroup;
+			children = (
+				6FFBB079205854580007B21A /* Main.storyboard */,
+				6F05325E20584E80007CA227 /* Helpers */,
+				6F05324E20584E62007CA227 /* AppDelegate.swift */,
+				6F05325220584E62007CA227 /* Assets.xcassets */,
+				6F05325720584E62007CA227 /* Info.plist */,
+				6F05325820584E62007CA227 /* VisionLauncher.entitlements */,
+			);
+			path = VisionLauncher;
+			sourceTree = "<group>";
+		};
+		6F05325E20584E80007CA227 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6F05325C20584E77007CA227 /* LaunchHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		6F1CD87B2058486F0070F383 = {
 			isa = PBXGroup;
 			children = (
 				6F1CD8862058486F0070F383 /* Vision */,
 				6F1CD899205848700070F383 /* VisionTests */,
 				6F1CD8A4205848700070F383 /* VisionUITests */,
+				6F05324D20584E62007CA227 /* VisionLauncher */,
 				6F1CD8852058486F0070F383 /* Products */,
+				6F1CD8CD20584B060070F383 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +159,7 @@
 				6F1CD8842058486F0070F383 /* Vision.app */,
 				6F1CD896205848700070F383 /* VisionTests.xctest */,
 				6F1CD8A1205848700070F383 /* VisionUITests.xctest */,
+				6F05324C20584E62007CA227 /* VisionLauncher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,6 +167,7 @@
 		6F1CD8862058486F0070F383 /* Vision */ = {
 			isa = PBXGroup;
 			children = (
+				6F1CD8C7205848B40070F383 /* Helpers */,
 				6F1CD8872058486F0070F383 /* AppDelegate.swift */,
 				6F1CD8892058486F0070F383 /* ViewController.swift */,
 				6F1CD88B2058486F0070F383 /* Assets.xcassets */,
@@ -124,9 +196,43 @@
 			path = VisionUITests;
 			sourceTree = "<group>";
 		};
+		6F1CD8C7205848B40070F383 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6F1CD8C8205848CA0070F383 /* LaunchHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6F1CD8CD20584B060070F383 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F1CD8D020584B140070F383 /* ServiceManagement.framework */,
+				6F1CD8CE20584B070070F383 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6F05324B20584E62007CA227 /* VisionLauncher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F05325920584E62007CA227 /* Build configuration list for PBXNativeTarget "VisionLauncher" */;
+			buildPhases = (
+				6F05324820584E62007CA227 /* Sources */,
+				6F05324920584E62007CA227 /* Frameworks */,
+				6F05324A20584E62007CA227 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VisionLauncher;
+			productName = VisionLauncher;
+			productReference = 6F05324C20584E62007CA227 /* VisionLauncher.app */;
+			productType = "com.apple.product-type.application";
+		};
 		6F1CD8832058486F0070F383 /* Vision */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6F1CD8AA205848700070F383 /* Build configuration list for PBXNativeTarget "Vision" */;
@@ -134,10 +240,12 @@
 				6F1CD8802058486F0070F383 /* Sources */,
 				6F1CD8812058486F0070F383 /* Frameworks */,
 				6F1CD8822058486F0070F383 /* Resources */,
+				6F1CD8D620584B800070F383 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6F05326320584F18007CA227 /* PBXTargetDependency */,
 			);
 			name = Vision;
 			productName = Vision;
@@ -190,6 +298,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Utsav Patel";
 				TargetAttributes = {
+					6F05324B20584E62007CA227 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					6F1CD8832058486F0070F383 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -222,11 +334,21 @@
 				6F1CD8832058486F0070F383 /* Vision */,
 				6F1CD895205848700070F383 /* VisionTests */,
 				6F1CD8A0205848700070F383 /* VisionUITests */,
+				6F05324B20584E62007CA227 /* VisionLauncher */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6F05324A20584E62007CA227 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F05325320584E62007CA227 /* Assets.xcassets in Resources */,
+				6FFBB07B205854580007B21A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6F1CD8822058486F0070F383 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -253,10 +375,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6F05324820584E62007CA227 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F05325D20584E77007CA227 /* LaunchHelper.swift in Sources */,
+				6F05324F20584E62007CA227 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6F1CD8802058486F0070F383 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F1CD8C9205848CA0070F383 /* LaunchHelper.swift in Sources */,
 				6F1CD88A2058486F0070F383 /* ViewController.swift in Sources */,
 				6F1CD8882058486F0070F383 /* AppDelegate.swift in Sources */,
 			);
@@ -281,6 +413,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6F05326320584F18007CA227 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F05324B20584E62007CA227 /* VisionLauncher */;
+			targetProxy = 6F05326220584F18007CA227 /* PBXContainerItemProxy */;
+		};
 		6F1CD898205848700070F383 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6F1CD8832058486F0070F383 /* Vision */;
@@ -302,9 +439,49 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+		6FFBB079205854580007B21A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6FFBB07A205854580007B21A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6F05325A20584E62007CA227 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VisionLauncher/VisionLauncher.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9F7K8HV529;
+				INFOPLIST_FILE = VisionLauncher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.erbittuu.VisionLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		6F05325B20584E62007CA227 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = VisionLauncher/VisionLauncher.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9F7K8HV529;
+				INFOPLIST_FILE = VisionLauncher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.erbittuu.VisionLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		6F1CD8A8205848700070F383 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -414,6 +591,7 @@
 		6F1CD8AB205848700070F383 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vision/Vision.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -430,6 +608,7 @@
 		6F1CD8AC205848700070F383 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Vision/Vision.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -512,6 +691,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6F05325920584E62007CA227 /* Build configuration list for PBXNativeTarget "VisionLauncher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F05325A20584E62007CA227 /* Debug */,
+				6F05325B20584E62007CA227 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6F1CD87F2058486F0070F383 /* Build configuration list for PBXProject "Vision" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
