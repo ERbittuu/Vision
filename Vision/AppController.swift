@@ -25,5 +25,17 @@ class AppController : NSObject {
         statusItem.image = icon
         statusItem.menu = statusMenu
     }
-
+    
+    @IBAction func enableDisableAction(_ sender: NSMenuItem) {
+        let baseWindow = BaseWindow.instance()
+        baseWindow.showWindow(nil)
+    }
+    
+    @IBAction func quitAction(_ sender: NSMenuItem) {
+        NSApp.terminate(nil)
+    }
+    
+    @IBAction func tipsAction(_ sender: NSMenuItem) {
+        
+    }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -686,50 +686,84 @@
                     <items>
                         <menuItem title="Enabled 😃" id="tmE-Xe-uCP">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="enableDisableAction:" target="IQ0-f5-mIq" id="VFW-Bh-fsH"/>
+                            </connections>
                         </menuItem>
                         <menuItem title="Tips 📕" id="Dpr-wc-iRS" userLabel="Tips">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="tipsAction:" target="IQ0-f5-mIq" id="64Y-Bm-2SN"/>
+                            </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="LtE-c8-ffc"/>
-                        <menuItem title="Quit 😞" keyEquivalent="q" id="fQ4-4t-GI3"/>
+                        <menuItem title="Quit 😞" keyEquivalent="q" id="fQ4-4t-GI3">
+                            <connections>
+                                <action selector="quitAction:" target="IQ0-f5-mIq" id="P9v-Yi-Gj7"/>
+                            </connections>
+                        </menuItem>
                     </items>
                 </menu>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
         <!--Window Controller-->
-        <scene sceneID="R2V-B0-nI4">
+        <scene sceneID="yUd-lO-KbJ">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                <windowController storyboardIdentifier="BaseWindow" id="XGo-xC-MS6" customClass="BaseWindow" customModule="Vision" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="BaseWindowSave" animationBehavior="default" id="aZy-6x-xOO">
+                        <windowStyleMask key="styleMask" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <rect key="contentRect" x="163" y="208" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
                         <connections>
-                            <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
+                            <outlet property="delegate" destination="XGo-xC-MS6" id="tkU-T0-dWl"/>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="AQf-1j-tpO" kind="relationship" relationship="window.shadowedContentViewController" id="Ukj-8n-jPo"/>
                     </connections>
                 </windowController>
-                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="rjC-TF-3jW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="-294" y="290"/>
+        </scene>
+        <!--Base View Controller-->
+        <scene sceneID="Yei-N8-fTY">
+            <objects>
+                <viewController id="AQf-1j-tpO" customClass="BaseViewController" customModule="Vision" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="sZb-GQ-MeO">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="selection" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="yu5-Qm-K1S">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="yu5-Qm-K1S" firstAttribute="top" secondItem="sZb-GQ-MeO" secondAttribute="top" id="3bn-xB-zSL"/>
+                            <constraint firstAttribute="bottom" secondItem="yu5-Qm-K1S" secondAttribute="bottom" id="ipJ-ht-U70"/>
+                            <constraint firstItem="yu5-Qm-K1S" firstAttribute="leading" secondItem="sZb-GQ-MeO" secondAttribute="leading" id="khp-8a-Yo1"/>
+                            <constraint firstAttribute="trailing" secondItem="yu5-Qm-K1S" secondAttribute="trailing" id="tVI-XU-Jn0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="Fbe-XI-pQr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="316" y="290"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <scene sceneID="z6p-zP-RMy">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Vision" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController id="z9z-le-WP7" sceneMemberID="viewController">
+                    <view key="view" id="YPT-hb-Hqv">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="BCA-RU-h0q" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="156" y="725"/>
         </scene>
     </scenes>
 </document>
