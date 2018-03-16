@@ -20,7 +20,12 @@ class BaseWindow: NSWindowController {
     
         if let mainScreen = NSScreen.main,
             let window = window {
-            let frame = mainScreen.frame
+            
+            let widthBy3 = mainScreen.frame.width / 3
+            let heightBy3 = mainScreen.frame.height / 3
+            let heightBy2 = mainScreen.frame.height / 2
+
+            let frame = NSRect(x: widthBy3, y: heightBy2, width: widthBy3, height: heightBy3)
             window.setFrame(frame, display: true)
             window.level = NSWindow.Level.statusBar
         }

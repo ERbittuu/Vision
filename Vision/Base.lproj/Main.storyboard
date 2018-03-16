@@ -711,7 +711,7 @@
         <scene sceneID="yUd-lO-KbJ">
             <objects>
                 <windowController storyboardIdentifier="BaseWindow" id="XGo-xC-MS6" customClass="BaseWindow" customModule="Vision" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="BaseWindowSave" animationBehavior="default" id="aZy-6x-xOO">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="BaseWindowSave" animationBehavior="default" id="aZy-6x-xOO">
                         <windowStyleMask key="styleMask" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="163" y="208" width="480" height="270"/>
@@ -747,23 +747,56 @@
                             <constraint firstAttribute="trailing" secondItem="yu5-Qm-K1S" secondAttribute="trailing" id="tVI-XU-Jn0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="z9z-le-WP7" kind="custom" identifier="StartUpController" id="VRd-lI-skf"/>
+                    </connections>
                 </viewController>
                 <customObject id="Fbe-XI-pQr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="316" y="290"/>
         </scene>
-        <!--View Controller-->
+        <!--Start Up Controller-->
         <scene sceneID="z6p-zP-RMy">
             <objects>
-                <viewController id="z9z-le-WP7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartUpController" id="z9z-le-WP7" customClass="StartUpController" customModule="Vision" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="YPT-hb-Hqv">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="vif-FF-uYK">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t35-4t-Gyc">
+                                        <rect key="frame" x="217" y="0.0" width="18" height="25"/>
+                                        <buttonCell key="cell" type="roundTextured" title="▼" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="8An-pK-b73">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system" size="16"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="CloseAction:" target="z9z-le-WP7" id="9PV-8Z-SSG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="t35-4t-Gyc" secondAttribute="bottom" id="5RG-JY-IBq"/>
+                                    <constraint firstItem="t35-4t-Gyc" firstAttribute="centerX" secondItem="vif-FF-uYK" secondAttribute="centerX" id="Uik-QS-KU9"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vif-FF-uYK" secondAttribute="trailing" id="69J-kz-gjg"/>
+                            <constraint firstItem="vif-FF-uYK" firstAttribute="top" secondItem="YPT-hb-Hqv" secondAttribute="top" id="8Ya-xm-HXb"/>
+                            <constraint firstItem="vif-FF-uYK" firstAttribute="leading" secondItem="YPT-hb-Hqv" secondAttribute="leading" id="Mnt-g9-9RZ"/>
+                            <constraint firstAttribute="bottom" secondItem="vif-FF-uYK" secondAttribute="bottom" id="gxQ-pk-QBl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="vif-FF-uYK" id="KCk-Dd-S5M"/>
+                    </connections>
                 </viewController>
                 <customObject id="BCA-RU-h0q" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="156" y="725"/>
+            <point key="canvasLocation" x="-133" y="648"/>
         </scene>
     </scenes>
 </document>
