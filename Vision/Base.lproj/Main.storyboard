@@ -2,6 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -696,6 +699,13 @@
                                 <action selector="tipsAction:" target="IQ0-f5-mIq" id="64Y-Bm-2SN"/>
                             </connections>
                         </menuItem>
+                        <menuItem isSeparatorItem="YES" id="Ng8-jm-Jg3"/>
+                        <menuItem title="Preferences ⚙️" id="0dx-dx-Yls">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="preferenceAction:" target="IQ0-f5-mIq" id="A7y-Zl-U6b"/>
+                            </connections>
+                        </menuItem>
                         <menuItem isSeparatorItem="YES" id="LtE-c8-ffc"/>
                         <menuItem title="Quit 😞" keyEquivalent="q" id="fQ4-4t-GI3">
                             <connections>
@@ -747,13 +757,120 @@
                             <constraint firstAttribute="trailing" secondItem="yu5-Qm-K1S" secondAttribute="trailing" id="tVI-XU-Jn0"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="z9z-le-WP7" kind="custom" identifier="StartUpController" id="VRd-lI-skf"/>
-                    </connections>
                 </viewController>
                 <customObject id="Fbe-XI-pQr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="316" y="290"/>
+        </scene>
+        <!--Preference Controller-->
+        <scene sceneID="JoG-nk-g33">
+            <objects>
+                <viewController storyboardIdentifier="PreferenceController" id="AU6-eW-V4b" customClass="PreferenceController" customModule="Vision" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="XxJ-k5-H0L">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box boxType="custom" borderType="line" cornerRadius="4" translatesAutoresizingMaskIntoConstraints="NO" id="vQJ-82-zgi">
+                                <rect key="frame" x="8" y="8" width="434" height="284"/>
+                                <view key="contentView" id="VtH-pQ-lhQ">
+                                    <rect key="frame" x="1" y="1" width="432" height="282"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="HMl-zS-3rS">
+                                            <rect key="frame" x="106" y="40" width="5" height="202"/>
+                                        </box>
+                                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="TR7-Dv-kuv" customClass="OGSwitch" customModule="Vision" customModuleProvider="target">
+                                            <rect key="frame" x="44" y="200" width="48" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="TR7-Dv-kuv" secondAttribute="height" multiplier="2:1.2" constant="4" id="fCZ-eQ-u2a"/>
+                                                <constraint firstAttribute="height" constant="26" id="xrc-C7-QUq"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                    <color key="value" red="0.99247711900000002" green="0.8138804436" blue="0.25495174529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </customView>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dPj-Cq-tHt">
+                                            <rect key="frame" x="123" y="203" width="295" height="19"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Start Vision on system start" id="TWx-hI-faA">
+                                                <font key="font" size="13" name="HelveticaNeue"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <box autoresizesSubviews="NO" boxType="custom" borderType="none" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="oEl-d9-09K">
+                                            <rect key="frame" x="0.0" y="258" width="432" height="24"/>
+                                            <view key="contentView" id="gI5-vU-mOq">
+                                                <rect key="frame" x="0.0" y="0.0" width="432" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0To-8s-QVQ">
+                                                        <rect key="frame" x="172" y="4" width="87" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Preferences" id="jn9-hW-kCs">
+                                                            <font key="font" metaFont="systemBold"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jax-ip-b5V">
+                                                        <rect key="frame" x="8" y="-4" width="11" height="32"/>
+                                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSStopProgressTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Ebq-jp-ZOF">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="closeAction:" target="AU6-eW-V4b" id="fMu-tm-wSk"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="jax-ip-b5V" firstAttribute="leading" secondItem="gI5-vU-mOq" secondAttribute="leading" constant="8" id="gYc-Ta-3SX"/>
+                                                    <constraint firstItem="jax-ip-b5V" firstAttribute="centerY" secondItem="gI5-vU-mOq" secondAttribute="centerY" id="kol-0e-wgD"/>
+                                                    <constraint firstItem="0To-8s-QVQ" firstAttribute="centerY" secondItem="gI5-vU-mOq" secondAttribute="centerY" id="plB-rU-NQO"/>
+                                                    <constraint firstItem="0To-8s-QVQ" firstAttribute="centerX" secondItem="gI5-vU-mOq" secondAttribute="centerX" id="wd4-WB-Ocs"/>
+                                                </constraints>
+                                            </view>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="bbJ-UI-8gQ"/>
+                                            </constraints>
+                                            <color key="fillColor" name="secondarySelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                        </box>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dPj-Cq-tHt" firstAttribute="leading" secondItem="HMl-zS-3rS" secondAttribute="trailing" constant="16" id="2HQ-VK-t0h"/>
+                                        <constraint firstItem="HMl-zS-3rS" firstAttribute="top" secondItem="VtH-pQ-lhQ" secondAttribute="top" constant="40" id="4Zb-oG-iF3"/>
+                                        <constraint firstItem="oEl-d9-09K" firstAttribute="leading" secondItem="VtH-pQ-lhQ" secondAttribute="leading" id="ByM-vK-aDh"/>
+                                        <constraint firstItem="TR7-Dv-kuv" firstAttribute="top" secondItem="HMl-zS-3rS" secondAttribute="top" constant="16" id="Fgz-45-RxT"/>
+                                        <constraint firstItem="HMl-zS-3rS" firstAttribute="leading" secondItem="TR7-Dv-kuv" secondAttribute="trailing" constant="16" id="FzE-u5-Vhf"/>
+                                        <constraint firstAttribute="bottom" secondItem="HMl-zS-3rS" secondAttribute="bottom" constant="40" id="Imh-hk-cOh"/>
+                                        <constraint firstAttribute="trailing" secondItem="oEl-d9-09K" secondAttribute="trailing" id="Kyi-2Z-9tU"/>
+                                        <constraint firstItem="dPj-Cq-tHt" firstAttribute="centerY" secondItem="TR7-Dv-kuv" secondAttribute="centerY" id="LEE-1e-oOO"/>
+                                        <constraint firstItem="oEl-d9-09K" firstAttribute="top" secondItem="VtH-pQ-lhQ" secondAttribute="top" id="QHM-ww-4iy"/>
+                                        <constraint firstAttribute="trailing" secondItem="dPj-Cq-tHt" secondAttribute="trailing" constant="16" id="lyG-Ar-Y5Z"/>
+                                        <constraint firstItem="HMl-zS-3rS" firstAttribute="centerX" secondItem="VtH-pQ-lhQ" secondAttribute="centerX" multiplier="0.5" id="wJI-do-Uoa"/>
+                                    </constraints>
+                                </view>
+                                <color key="borderColor" red="0.90433852714935536" green="0.90433852714935536" blue="0.90433852714935536" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="fillColor" red="0.90433852709999996" green="0.90433852709999996" blue="0.90433852709999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </box>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="vQJ-82-zgi" firstAttribute="top" secondItem="XxJ-k5-H0L" secondAttribute="top" constant="8" id="8qR-zc-rOj"/>
+                            <constraint firstAttribute="trailing" secondItem="vQJ-82-zgi" secondAttribute="trailing" constant="8" id="NEi-Kh-Eqx"/>
+                            <constraint firstItem="vQJ-82-zgi" firstAttribute="leading" secondItem="XxJ-k5-H0L" secondAttribute="leading" constant="8" id="c54-wK-RLe"/>
+                            <constraint firstAttribute="bottom" secondItem="vQJ-82-zgi" secondAttribute="bottom" constant="8" id="srK-Dc-eSL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="runAtStartupButton" destination="TR7-Dv-kuv" id="DIJ-Ta-2jb"/>
+                        <outlet property="runAtStartupLabel" destination="dPj-Cq-tHt" id="WZ8-qW-T4J"/>
+                    </connections>
+                </viewController>
+                <customObject id="d9O-nN-mkt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="Wcf-J2-dNc"/>
+            </objects>
+            <point key="canvasLocation" x="-209" y="736"/>
         </scene>
         <!--Start Up Controller-->
         <scene sceneID="z6p-zP-RMy">
@@ -767,7 +884,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t35-4t-Gyc">
-                                        <rect key="frame" x="217" y="0.0" width="18" height="25"/>
+                                        <rect key="frame" x="216" y="0.0" width="18" height="25"/>
                                         <buttonCell key="cell" type="roundTextured" title="▼" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="8An-pK-b73">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system" size="16"/>
@@ -796,7 +913,10 @@
                 </viewController>
                 <customObject id="BCA-RU-h0q" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133" y="648"/>
+            <point key="canvasLocation" x="-76" y="831"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSStopProgressTemplate" width="11" height="11"/>
+    </resources>
 </document>

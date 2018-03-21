@@ -11,6 +11,9 @@ import Cocoa
 
 class AppController : NSObject {
     
+    static let titleEnabled = "Enabled 😃"
+    static let titleDisabled = "Disabled 😔"
+    
     static let shared = AppController()
 
     @IBOutlet weak var statusMenu: NSMenu!
@@ -24,11 +27,25 @@ class AppController : NSObject {
         icon.isTemplate = true // best for dark mode
         statusItem.image = icon
         statusItem.menu = statusMenu
+        statusMenu.item(at: 0)!.title = Defaults[.startAtLogin] ? AppController.titleEnabled : AppController.titleDisabled
+        statusMenu.delegate = self
     }
     
     @IBAction func enableDisableAction(_ sender: NSMenuItem) {
-        let baseWindow = BaseWindow.instance()
-        baseWindow.showWindow(nil)
+        
+        let isEnabled = (sender.title == AppController.titleEnabled)
+        
+        Defaults[.startAtLogin] = !isEnabled
+        LaunchHelper.shared.startUpChanges()
+        sender.title = Defaults[.startAtLogin] ? AppController.titleEnabled : AppController.titleDisabled
+    }
+
+    var preferenceController : NSWindowController?
+    @IBAction func preferenceAction(_ sender: NSMenuItem) {
+        if preferenceController == nil {
+            preferenceController = PreferenceController.selfObject
+        }
+        preferenceController?.showWindow(nil)
     }
     
     @IBAction func quitAction(_ sender: NSMenuItem) {
@@ -39,3 +56,10 @@ class AppController : NSObject {
         
     }
 }
+
+extension AppController : NSMenuDelegate {
+    func menuWillOpen(_ menu: NSMenu) {
+        statusMenu.item(at: 0)!.title = Defaults[.startAtLogin] ? AppController.titleEnabled : AppController.titleDisabled
+    }
+}
+

@@ -20,18 +20,20 @@ class LaunchHelper {
     
     private init() { }
     
-    
-    func startUp() {
+    func startUpChanges() {
         
         let launcherAppId = "com.erbittuu.VisionLauncher"
+        let isOn = Defaults[.startAtLogin]
+        
         let runningApps = NSWorkspace.shared.runningApplications
         let isRunning = !runningApps.filter { $0.bundleIdentifier == launcherAppId }.isEmpty
-        
-        SMLoginItemSetEnabled(launcherAppId as CFString, true)
         
         if isRunning {
             DistributedNotificationCenter.default().post(name: .killLauncher,
                                                          object: Bundle.main.bundleIdentifier!)
+        }
+        if SMLoginItemSetEnabled(launcherAppId as CFString, isOn) {
+            print("Success \(isOn ? "On" : "Off")")
         }
     }
 }

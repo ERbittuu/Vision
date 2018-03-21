@@ -13,7 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        LaunchHelper.shared.startUp()
+        LaunchHelper.shared.startUpChanges()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

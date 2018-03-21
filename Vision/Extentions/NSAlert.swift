@@ -32,6 +32,8 @@ extension NSAlert {
         if res == NSApplication.ModalResponse.alertSecondButtonReturn {
             secondAction()
         }
+    
+    
         
     }
 }

@@ -11,6 +11,8 @@ import Cocoa
 
 class ViewControllerAnimator: NSObject, NSViewControllerPresentationAnimator {
     
+    var squre = false
+    
     @objc func  animatePresentation(of viewController: NSViewController, from fromViewController: NSViewController) {
         let bottomVC = fromViewController
         let topVC = viewController
@@ -22,7 +24,7 @@ class ViewControllerAnimator: NSObject, NSViewControllerPresentationAnimator {
         
         bottomVC.view.addConstraint(NSLayoutConstraint.init(item: bottomVC.view, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: topVC.view, attribute: NSLayoutConstraint.Attribute.height, multiplier: 1.0, constant: 0))
         
-        bottomVC.view.addConstraint(NSLayoutConstraint.init(item: bottomVC.view, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: topVC.view, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1.0, constant: 0))
+        bottomVC.view.addConstraint(NSLayoutConstraint.init(item: bottomVC.view, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: topVC.view, attribute: NSLayoutConstraint.Attribute.width, multiplier: 1.0, constant: 0))
         
         bottomVC.view.addConstraint(NSLayoutConstraint.init(item: bottomVC.view, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: topVC.view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1.0, constant: 0))
         
