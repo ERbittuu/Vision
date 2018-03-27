@@ -27,7 +27,7 @@ class AppController : NSObject {
         icon.isTemplate = true // best for dark mode
         statusItem.image = icon
         statusItem.menu = statusMenu
-        statusMenu.item(at: 0)!.title = Defaults[.startAtLogin] ? AppController.titleEnabled : AppController.titleDisabled
+        statusMenu.item(at: 0)!.title = Defaults[.running] ? AppController.titleEnabled : AppController.titleDisabled
         statusMenu.delegate = self
     }
     
@@ -35,9 +35,9 @@ class AppController : NSObject {
         
         let isEnabled = (sender.title == AppController.titleEnabled)
         
-        Defaults[.startAtLogin] = !isEnabled
-        LaunchHelper.shared.startUpChanges()
-        sender.title = Defaults[.startAtLogin] ? AppController.titleEnabled : AppController.titleDisabled
+        Defaults[.running] = !isEnabled
+        sender.title = Defaults[.running] ? AppController.titleEnabled : AppController.titleDisabled
+        trigger(.stateChange)
     }
 
     var preferenceController : NSWindowController?
@@ -59,7 +59,7 @@ class AppController : NSObject {
 
 extension AppController : NSMenuDelegate {
     func menuWillOpen(_ menu: NSMenu) {
-        statusMenu.item(at: 0)!.title = Defaults[.startAtLogin] ? AppController.titleEnabled : AppController.titleDisabled
+        statusMenu.item(at: 0)!.title = Defaults[.running] ? AppController.titleEnabled : AppController.titleDisabled
     }
 }
 

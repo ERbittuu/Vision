@@ -31,13 +31,18 @@ class PreferenceController: NSViewController {
         runAtStartupButton.target = self
         runAtStartupButton.action = #selector(runAtStartUpAction(sender:))
         
-        Defaults.addObserver(self, forKeyPath: DefaultsKeys.startAtLogin._key, options: .new, context: nil)
         updateRunAtStartupLabel()
     }
     
     @objc func runAtStartUpAction(sender: OGSwitch) {
         Defaults[.startAtLogin] = sender.isOn
-        LaunchHelper.shared.startUpChanges()
+        LaunchHelper.shared.launcherChanges { (success) in
+            if success {
+                Helper.shared.startupSet2Enabled()
+            }else{
+                Helper.shared.startupSet2Disabled()
+            }
+        }
     }
     
     @IBAction func closeAction(_ sender: NSButton) {
@@ -48,28 +53,10 @@ class PreferenceController: NSViewController {
         super.viewWillAppear()
     }
     
-    override func observeValue(forKeyPath keyPath: String?,
-                               of object: Any?,
-                               change: [NSKeyValueChangeKey : Any]?,
-                               context: UnsafeMutableRawPointer?) {
-        
-        if keyPath == DefaultsKeys.startAtLogin._key,
-            let chanegs = change,
-            let new = chanegs[NSKeyValueChangeKey.newKey] as? Bool {
-            runAtStartupButton.setOn(isOn: Defaults[.startAtLogin], animated: new)
-            updateRunAtStartupLabel()
-        }
-    }
-    
     func updateRunAtStartupLabel() {
         let titleEnabled = "Start Vision on system start 😃"
         let titleDisabled = "Vision can't start on system start 😔"
         
         runAtStartupLabel.stringValue = Defaults[.startAtLogin] ? titleEnabled : titleDisabled
     }
-    
-    deinit {
-        Defaults.removeObserver(self, forKeyPath: DefaultsKeys.startAtLogin._key)
-    }
 }
-

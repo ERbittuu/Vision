@@ -21,6 +21,18 @@ class LaunchHelper {
     private init() { }
     
     func startUpChanges() {
+        _ = Helper.shared
+        launcherChanges { (success) in
+            if success {
+                Defaults[.running] = true
+                trigger(.stateChange)
+            }else{
+                Helper.shared.note4informThatDisabled()
+            }
+        }
+    }
+    
+    func launcherChanges(completion:((Bool) -> ())) {
         
         let launcherAppId = "com.erbittuu.VisionLauncher"
         let isOn = Defaults[.startAtLogin]
@@ -34,9 +46,7 @@ class LaunchHelper {
         }
         if SMLoginItemSetEnabled(launcherAppId as CFString, isOn) {
             print("Success \(isOn ? "On" : "Off")")
+            completion(isOn)
         }
     }
 }
-
-
-

@@ -10,6 +10,7 @@ import Foundation
 
 extension DefaultsKeys {
     static let startAtLogin = DefaultsKey<Bool>("startAtLogin")
+    static let running = DefaultsKey<Bool>("running")
 }
 
 public extension UserDefaults {

@@ -789,6 +789,9 @@
                                                 <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                                     <color key="value" red="0.99247711900000002" green="0.8138804436" blue="0.25495174529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
+                                                    <color key="value" red="0.90433852709999996" green="0.90433852709999996" blue="0.90433852709999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </customView>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dPj-Cq-tHt">
@@ -913,7 +916,7 @@
                 </viewController>
                 <customObject id="BCA-RU-h0q" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-76" y="831"/>
+            <point key="canvasLocation" x="-71" y="1172"/>
         </scene>
     </scenes>
     <resources>
