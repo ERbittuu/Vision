@@ -18,14 +18,18 @@ class Helper :NSObject {
         return Defaults[.running]
     }
     
-    private var firstNotification = fals=-]{_'0;98 utr}
+    private var firstNotification = false
     
     private var breakTimer = false
     private var scheduled = false
-    private var time = TimeInterval(10)
+    private var timeDelay = TimeInterval(10)
+    private var timeBreak = TimeInterval(10)
+    private var time: TimeInterval  {
+        get {
+            return timeDelay + timeBreak
+        }
+    }
     private var timer : Timer?
-    
-    let notificationCenterDefault = NSUserNotificationCenter.default
 
     @discardableResult
     private override init() {
@@ -37,7 +41,6 @@ class Helper :NSObject {
                 self.invalidate()
             }
         }
-        notificationCenterDefault.delegate = self
     }
     
     func start() {
@@ -69,90 +72,17 @@ class Helper :NSObject {
         scheduled = false
         timer?.invalidate()
         timer = nil
-        endNotificationFire()
+        NSUserNotification.fire(type: .end)
     }
     
     func notification() {
         print(#function)
         if firstNotification {
            firstNotification = false
-            firstNotificationFire()
+            NSUserNotification.fire(type: .start)
         }else{
-            showNotification()
+            NSUserNotification.fire(type: .custom("Test from Swift", "subtitle from Swift"))
         }
-    }
-    
-    func endNotificationFire() -> Void {
-        // Clear Old Notifications
-        notificationCenterDefault.removeAllDeliveredNotifications()
-        
-        // Create New
-        let notification = NSUserNotification()
-        notification.title = "end Notification Fire"
-        notification.informativeText = "App is stoped now"
-        notification.soundName = NSUserNotificationDefaultSoundName
-        notificationCenterDefault.deliver(notification)
-    }
-    
-    func firstNotificationFire() -> Void {
-        // Clear Old Notifications
-        notificationCenterDefault.removeAllDeliveredNotifications()
-        
-        // Create New
-        let notification = NSUserNotification()
-        notification.title = "first Notification Fire"
-        notification.informativeText = "App is started now"
-        notification.soundName = NSUserNotificationDefaultSoundName
-        notificationCenterDefault.deliver(notification)
-    }
-    
-    func showNotification() -> Void {
-        // Clear Old Notifications
-         notificationCenterDefault.removeAllDeliveredNotifications()
-        
-        // Create New
-        let notification = NSUserNotification()
-        notification.title = "Test from Swift"
-        notification.subtitle = "subtitle from Swift"
-        notification.hasActionButton  = true
-        notification.actionButtonTitle = "Break time"
-        notification.informativeText = "\(Date())"
-        notification.soundName = NSUserNotificationDefaultSoundName
-        notificationCenterDefault.deliver(notification)
-    }
-    
-    func note4informThatDisabled() -> Void {
-        // Clear Old Notifications
-        notificationCenterDefault.removeAllDeliveredNotifications()
-        
-        // Create New
-        let notification = NSUserNotification()
-        notification.title = "Run at startup is disabled"
-        notification.informativeText = "start from preference"
-        notification.soundName = NSUserNotificationDefaultSoundName
-        notificationCenterDefault.deliver(notification)
-    }
-    
-    func startupSet2Disabled() -> Void {
-        // Clear Old Notifications
-        notificationCenterDefault.removeAllDeliveredNotifications()
-        
-        // Create New
-        let notification = NSUserNotification()
-        notification.title = "Run at startup is disabled"
-        notification.soundName = NSUserNotificationDefaultSoundName
-        notificationCenterDefault.deliver(notification)
-    }
-    
-    func startupSet2Enabled() -> Void {
-        // Clear Old Notifications
-        notificationCenterDefault.removeAllDeliveredNotifications()
-        
-        // Create New
-        let notification = NSUserNotification()
-        notification.title = "Run at startup is enabled"
-        notification.soundName = NSUserNotificationDefaultSoundName
-        notificationCenterDefault.deliver(notification)
     }
 }
 

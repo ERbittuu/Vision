@@ -14,14 +14,8 @@ class BaseViewController: NSViewController {
         super.viewDidLoad()
         
         // startUp
-//        let startUp = StartUpController.instance()
-//        self.presentViewController(startUp, animator: ViewControllerAnimator())
-        
-        let animator = ViewControllerAnimator()
-        animator.squre = false
-        // preference
-        let preference = PreferenceController.instance()
-        self.presentViewController(preference, animator: animator)
+        let startUp = StartUpController.instance()
+        self.presentViewController(startUp, animator: ViewControllerAnimator())        
     }
     
     override func viewWillAppear() {

@@ -27,7 +27,7 @@ class LaunchHelper {
                 Defaults[.running] = true
                 trigger(.stateChange)
             }else{
-                Helper.shared.note4informThatDisabled()
+                NSUserNotification.fire(type: .startUpDisable(true))
             }
         }
     }
@@ -35,7 +35,7 @@ class LaunchHelper {
     func launcherChanges(completion:((Bool) -> ())) {
         
         let launcherAppId = "com.erbittuu.VisionLauncher"
-        let isOn = Defaults[.startAtLogin]
+        let isOn = Defaults[.autoStart]
         
         let runningApps = NSWorkspace.shared.runningApplications
         let isRunning = !runningApps.filter { $0.bundleIdentifier == launcherAppId }.isEmpty
